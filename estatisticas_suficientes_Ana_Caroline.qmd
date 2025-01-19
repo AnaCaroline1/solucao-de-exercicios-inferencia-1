@@ -1,0 +1,235 @@
+---
+title: "Estimadores Suficientes"
+subtitle: "Solução de exemplos e exerícios"
+author: 
+  - name: Ana Caroline Alexandre P.
+    affiliations:
+      - name: Faculdade de Estatística - FAEST
+      - name: Universidade Federal do Pará - UFPA
+        department: Instituto de Ciências Exatas e Naturais - ICEN
+    email: ana.pantoja@icen.ufpa.br
+format: html
+lang: "pt"
+editor: visual
+---
+
+------------------------------------------------------------------------
+
+<br>
+
+### Exercício 11:
+
+Sejam $X_1, . . . , X_n$ uma amostra aleatória da distribuição de Poisson com parâmetro $θ$. Vamos verificar se $T = \sum_{i=1}^{n} X_i$ é suficiente para $\theta$.
+
+### Solução 11:
+
+Temos pelo Critério da Fatoração que,
+
+$$
+L(\theta|x)= h(x_1,...x_n)\times g_\theta[T(x_1,...x_n)]
+$$
+
+A função de probabilidade da Poisson é
+
+$$
+P(X=x) = \frac{e^{-\theta}\theta^x}{x!} , \quad x=0,1,2,3...
+$$
+
+A função de verossimilhança aplicada a Poisson será:
+
+$$L(\theta|x)=\prod_{i=1}^{n} P(X = x_i) = \prod_{i=1}^{n} \frac{e^{-\theta}\theta^{x_i}}{x_i!}
+\\=\frac{e^{-\theta}\theta^{x_1}}{x_1!}\times\frac{e^{-\theta}\theta^{x_2}}{x_2!},...,\frac{e^{-\theta}\theta^{x_n}}{x_n!}=
+$$ $$=\frac{e^{-n\theta}\times\theta^{\sum_{i=1}^{n}x_i}}{\prod_{i=1}^{n}x_i!}=\\
+\frac{1}{\prod_{i=1}^{n}x_i!}\times{e^{-n\theta}\theta^{\sum_{i=1}^{n}x_i}}
+$$
+
+1.  Onde $\frac{1}{\prod_{i=1}^{n}x_i!}$ é função que depende apenas da amostra $h(x_1,...x_n)$.
+
+2.  E ${e^{-n\theta}\theta^{\sum_{i=1}^{n}x_i}}$ é a função $g_\theta$ que depende de $\theta$ e de $x_i$ somente através da *T*.
+
+Nota-se que $T(x_1,x_2,...,x_n)=\sum_{i =x_i}^{n}$. Logo, $\sum_{i =x_i}^{n}$ é uma estatística suficiente para $\theta$.
+
+------------------------------------------------------------------------
+
+<br>
+
+### Exercício (aplicação em sala) 1:
+
+Sendo $X$ \~ $Ber(\theta)$, com: $$
+P(X=x| \theta)=\theta^x(1-\theta)^{1-x}, \quad x = 0,1,2,3...
+$$
+
+### Solução:
+
+A função de verossimilhança aplicada a Bernoulli: $$
+L(\theta|x) = \prod_{i=1}^{n} \theta^{xi}(1-\theta)^{1-x_i} = \theta^{x_1}(1-\theta)^{1-x_1}\times\theta^{x_2}(1-\theta)^{1-x_2},...,\theta^{x_n}(1-\theta)^{1-x_n} =
+$$
+
+$$
+= \theta^{\sum_{i=1}^{n}x_i}(1-\theta)^{n-\sum_{i=1}^{n}x_i}
+$$
+
+1.  Temos que a função $h(x_1,..x_n) = 1$.
+2.  E a $g_\theta[T(x_1,x_2,...,x_n)]= \theta^{\sum_{i=1}^{n}x_i}(1-\theta)^{n-\sum_{i=1}^{n}x_i}$.
+
+Podemos reescrever da seguinte forma: $$
+\theta^{\sum_{i=1}^{n}x_i} \times \frac{(1-\theta)^{n}}{(1-\theta)^{\sum_{i=1}^{n}x_i}}
+$$ Logo $T=\sum{x_i}$ é uma estatística suficiente para $\theta$.
+
+<br>
+
+------------------------------------------------------------------------
+
+### Exercício 12:
+
+Sejam $X_1,...,X_n$ uma amostra aleatória da variável aleatória $X ∼ U(0, θ)$.
+
+A função densidade da Uniforme contínua é:
+
+$$
+f(x|\theta)= \frac{1}{\theta-0}=\frac{1}{\theta}I_{[0,\theta]}x
+$$
+
+1.  $\quad x \in [0,\theta]$, aqui temos um parâmetro no suporte de $x$. A onde não se pode calcular a equação de regulariadade do $Li$.
+
+### Solução 12:
+
+Aplicado a função de verossimilhança:
+
+$$
+L(\theta|x) = \prod_{i=1}^{n} f(x_i) = \prod_{i=1}^{n} \frac{1}{\theta} \cdot I(x_i)_{[0,\theta]}= 
+$$
+
+$$
+=  \frac{1}{\theta} \cdot I(x_1)_{[0,\theta]} \times \frac{1}{\theta} \cdot I(x_2)_{[0,\theta]},...\frac{1}{\theta} \cdot I(x_n)_{[0,\theta]} =
+$$
+
+$$
+= \frac{1}{\theta^{n}} \cdot \prod_{i=1}^{n} I(x_i)_{[0,\theta]}
+$$
+
+-   Quem seria a estatística suficiente?
+
+    $\rightarrow$ Existe uma relação de dependencia de $\theta$ no suporte de $x_i$.
+
+    <br>
+
+    $\rightarrow$ Para encontrar a estatística, teremos que verificar os intervalos do suporte.
+
+**Observe:**
+
+$$
+0 < x_i < \theta, \quad i=1,...n.
+$$
+
+Logo, podemos expandir da seguinte forma:
+
+$$
+0 < x_1 < \theta
+$$ $$
+0 < x_2 < \theta
+$$ $$
+.
+$$ $$
+.
+$$ $$
+.
+$$ $$
+0 < x_n < \theta
+$$
+
+Podemos ter a seguinte relação, baseado nos conceitos anteriores sobre as **Estatísticas de Ordem(mínimos, máximos)**:
+
+$$
+0 <x_{(1)} < \underbrace{x_{(n)}<\theta<\infty}_{intervalo \quad de \quad  \theta}
+$$
+
+Reescrevendo a função Indicadora para o intervalo de $\theta$, temos:
+
+$$
+L(\theta|x) = \frac{1}{\theta^{n}} \cdot \prod_{i=1}^{n} I(x_i)_{[x_{n},\infty]} =
+$$
+
+$$
+= \frac{1}{\theta^{n}} \cdot I(\theta)_{[x_{(n)}, \infty)}
+$$ Pelo Critério da Fatoração, temos:
+
+1.  Temos que a função $h(x_1,..x_n) = 1(x_{(1)})_{[0,x_{(n)}]}$.
+2.  E a $g_\theta[T(x_1,x_2,...,x_n)]= \frac{1}{\theta^{n}} \cdot I(\theta)_{[x_{(n)}, \infty)}$.
+
+A partir da função indicadora de uma variável $x$, ao manipular os intervalos, podemos obter a função de $\theta$, de modo que $g_{\theta}$ seja uma estatística suficiente.
+
+Assim, a estatística suficiente $T(x_{1},...,x_{n})= x_{(n)}$ é dada pelo máximo $x_{(n)}$, que depende de $\theta$.
+
+<br>
+
+------------------------------------------------------------------------
+
+### Exercício (aplicação em sala) 2:
+
+Sendo $X ∼ U(\theta,1)$.
+
+$$
+f(x)=\frac{1}{1-\theta} \cdot I(x)_{[\theta,1]}
+$$
+
+### Solução:
+
+Aplicando a função de verossimilhança:
+
+$$
+L(\theta|x) = \prod_{i=1}^{n} \frac{1}{1-\theta} \cdot I(x_i)_{[\theta,1]}= 
+$$
+
+$$
+= \frac{1}{1-\theta} \cdot I(x_1)_{[\theta,1]} \times \frac{1}{1-\theta} \cdot I(x_2)_{[\theta,1]} \times,..., \times \frac{1}{1-\theta} \cdot I(x_n)_{[\theta,1]}=   
+$$
+
+$$
+= \frac{1}{(1-\theta)^{n}} \cdot \prod_{i=1}^{n} I(x_i)_{[\theta,1]}
+$$
+
+Novamente, temos que:
+
+$$
+0 < x_i < \theta, \quad i=1,...n.
+$$
+
+$$
+\theta < x_1 < 1
+$$ $$
+\theta < x_2 < 1
+$$ $$
+.
+$$
+
+$$
+.
+$$
+
+$$
+.
+$$
+
+$$
+\theta < x_n < 1
+$$ Logo, o intervalo em que $\theta$ está contido, será:
+
+$$
+\underbrace{0< \theta < x_{(1)}}_{intervalo \quad de \quad \theta}< x_{(n)} < 1
+$$
+
+Reescrevendo a função indicadora para $\theta$:
+
+$$
+L(\theta|x) = \prod_{i=1}^{n} \frac{1}{1-\theta} \cdot I(x_i)_{[\theta,1]}= 
+$$
+
+$$
+= \frac{1}{(1-\theta)^{n}} \cdot I(\theta)_{[0,x_{(1)}]} \cdot I(x_{(n)})_{[x_{(1)}, 1]}
+$$
+
+1.  Temos que a função $h(x_1,..x_n) = 1I(x_{(n)})_{[x_{(1)}, 1]}$.
+2.  E a $g_\theta[T(x_1,x_2,...,x_n)] = \frac{1}{(1-\theta)^{n}} \cdot I(\theta)_{[0,x_{(1)}]}$.
+
+Portanto, pelo Critério da Fatoração, $T(x_{1},...,x_{n})= x_{(1)}$ é uma estatística suficiente para $\theta$.
