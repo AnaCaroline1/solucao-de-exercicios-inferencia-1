@@ -1,6 +1,7 @@
 ---
 title: "Estimadores Suficientes"
-subtitle: "Solução de exemplos e exerícios"
+subtitle: "Solução de exemplos e exercícios"
+date: 2025/01/17
 author: 
   - name: Ana Caroline Alexandre P.
     affiliations:
@@ -8,25 +9,37 @@ author:
       - name: Universidade Federal do Pará - UFPA
         department: Instituto de Ciências Exatas e Naturais - ICEN
     email: ana.pantoja@icen.ufpa.br
-format: html
-lang: "pt"
+format:
+  pdf: 
+    documentclass: report
+    keep-tex: true
+  html:
+    theme: united
+    max-width: 1400px
+    fontsize: 1.1em
+    linestretch: 1
 editor: visual
+lang: pt
+
 ---
 
-------------------------------------------------------------------------
 
-<br>
+```{=html}
+<style>
+  body{text-align: justify}
+</style>
+```
 
-### Exercício 11:
+### Exercício 11 :
 
-Sejam $X_1, . . . , X_n$ uma amostra aleatória da distribuição de Poisson com parâmetro $θ$. Vamos verificar se $T = \sum_{i=1}^{n} X_i$ é suficiente para $\theta$.
+Sejam $X_1,..., X_n$ uma amostra aleatória da distribuição de Poisson com parâmetro $θ$. Vamos verificar se $T = \sum_{i=1}^{n} X_i$ é suficiente para $\theta$.
 
 ### Solução 11:
 
 Temos pelo Critério da Fatoração que,
 
 $$
-L(\theta|x)= h(x_1,...x_n)\times g_\theta[T(x_1,...x_n)]
+L(\theta|x)= h(x_1,...,x_n)\times g_\theta[T(x_1,...,x_n)]
 $$
 
 A função de probabilidade da Poisson é
@@ -45,11 +58,9 @@ $$
 
 1.  Onde $\frac{1}{\prod_{i=1}^{n}x_i!}$ é função que depende apenas da amostra $h(x_1,...x_n)$.
 
-2.  E ${e^{-n\theta}\theta^{\sum_{i=1}^{n}x_i}}$ é a função $g_\theta$ que depende de $\theta$ e de $x_i$ somente através da *T*.
+2.  E ${e^{-n\theta}\theta^{\sum_{i=1}^{n}x_i}}$ é a função $g_\theta$ que depende de $\theta$ e de $x_i$ somente através da *estatística T*.
 
-Nota-se que $T(x_1,x_2,...,x_n)=\sum_{i =x_i}^{n}$. Logo, $\sum_{i =x_i}^{n}$ é uma estatística suficiente para $\theta$.
-
-------------------------------------------------------------------------
+Nota-se que $T(x_1,x_2,...,x_n)=\sum_{i = 1}^{n} x_{i}$. Logo, $\sum_{i = 1}^{n} x_{i}$ é uma estatística suficiente para $\theta$.
 
 <br>
 
@@ -77,8 +88,6 @@ Podemos reescrever da seguinte forma: $$
 $$ Logo $T=\sum{x_i}$ é uma estatística suficiente para $\theta$.
 
 <br>
-
-------------------------------------------------------------------------
 
 ### Exercício 12:
 
@@ -126,15 +135,21 @@ Logo, podemos expandir da seguinte forma:
 
 $$
 0 < x_1 < \theta
-$$ $$
+$$ 
+
+$$
 0 < x_2 < \theta
-$$ $$
+$$ 
+$$
 .
-$$ $$
+$$ 
+$$
 .
-$$ $$
+$$ 
+$$
 .
-$$ $$
+$$ 
+$$
 0 < x_n < \theta
 $$
 
@@ -162,8 +177,6 @@ A partir da função indicadora de uma variável $x$, ao manipular os intervalos
 Assim, a estatística suficiente $T(x_{1},...,x_{n})= x_{(n)}$ é dada pelo máximo $x_{(n)}$, que depende de $\theta$.
 
 <br>
-
-------------------------------------------------------------------------
 
 ### Exercício (aplicação em sala) 2:
 
@@ -197,20 +210,19 @@ $$
 
 $$
 \theta < x_1 < 1
-$$ $$
+$$ 
+$$
 \theta < x_2 < 1
-$$ $$
-.
-$$
-
+$$ 
 $$
 .
+$$ 
 $$
-
+.
+$$ 
 $$
 .
 $$
-
 $$
 \theta < x_n < 1
 $$ Logo, o intervalo em que $\theta$ está contido, será:

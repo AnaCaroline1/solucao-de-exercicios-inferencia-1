@@ -1,0 +1,432 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{report}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Índice}
+\else
+  \newcommand\contentsname{Índice}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Lista de Figuras}
+\else
+  \newcommand\listfigurename{Lista de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Lista de Tabelas}
+\else
+  \newcommand\listtablename{Lista de Tabelas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabela}
+\else
+  \newcommand\tablename{Tabela}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listagem}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listagens}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{portuguese}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Estimadores Suficientes},
+  pdfauthor={Ana Caroline Alexandre P.},
+  pdflang={pt},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Estimadores Suficientes}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Solução de exemplos e exercícios}
+\author{Ana Caroline Alexandre P.}
+\date{2025-01-17}
+
+\begin{document}
+\maketitle
+
+
+\subsection{Exercício 11 :}\label{exercuxedcio-11}
+
+Sejam \(X_1,..., X_n\) uma amostra aleatória da distribuição de Poisson
+com parâmetro \(θ\). Vamos verificar se \(T = \sum_{i=1}^{n} X_i\) é
+suficiente para \(\theta\).
+
+\subsection{Solução 11:}\label{soluuxe7uxe3o-11}
+
+Temos pelo Critério da Fatoração que,
+
+\[
+L(\theta|x)= h(x_1,...,x_n)\times g_\theta[T(x_1,...,x_n)]
+\]
+
+A função de probabilidade da Poisson é
+
+\[
+P(X=x) = \frac{e^{-\theta}\theta^x}{x!} , \quad x=0,1,2,3...
+\]
+
+A função de verossimilhança aplicada a Poisson será:
+
+\[L(\theta|x)=\prod_{i=1}^{n} P(X = x_i) = \prod_{i=1}^{n} \frac{e^{-\theta}\theta^{x_i}}{x_i!}
+\\=\frac{e^{-\theta}\theta^{x_1}}{x_1!}\times\frac{e^{-\theta}\theta^{x_2}}{x_2!},...,\frac{e^{-\theta}\theta^{x_n}}{x_n!}=
+\]
+\[=\frac{e^{-n\theta}\times\theta^{\sum_{i=1}^{n}x_i}}{\prod_{i=1}^{n}x_i!}=\\
+\frac{1}{\prod_{i=1}^{n}x_i!}\times{e^{-n\theta}\theta^{\sum_{i=1}^{n}x_i}}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Onde \(\frac{1}{\prod_{i=1}^{n}x_i!}\) é função que depende apenas da
+  amostra \(h(x_1,...x_n)\).
+\item
+  E \({e^{-n\theta}\theta^{\sum_{i=1}^{n}x_i}}\) é a função \(g_\theta\)
+  que depende de \(\theta\) e de \(x_i\) somente através da
+  \emph{estatística T}.
+\end{enumerate}
+
+Nota-se que \(T(x_1,x_2,...,x_n)=\sum_{i = 1}^{n} x_{i}\). Logo,
+\(\sum_{i = 1}^{n} x_{i}\) é uma estatística suficiente para \(\theta\).
+
+\subsection{Exercício (aplicação em sala)
+1:}\label{exercuxedcio-aplicauxe7uxe3o-em-sala-1}
+
+Sendo \(X\) \textasciitilde{} \(Ber(\theta)\), com: \[
+P(X=x| \theta)=\theta^x(1-\theta)^{1-x}, \quad x = 0,1,2,3...
+\]
+
+\subsection{Solução:}\label{soluuxe7uxe3o}
+
+A função de verossimilhança aplicada a Bernoulli: \[
+L(\theta|x) = \prod_{i=1}^{n} \theta^{xi}(1-\theta)^{1-x_i} = \theta^{x_1}(1-\theta)^{1-x_1}\times\theta^{x_2}(1-\theta)^{1-x_2},...,\theta^{x_n}(1-\theta)^{1-x_n} =
+\]
+
+\[
+= \theta^{\sum_{i=1}^{n}x_i}(1-\theta)^{n-\sum_{i=1}^{n}x_i}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Temos que a função \(h(x_1,..x_n) = 1\).
+\item
+  E a
+  \(g_\theta[T(x_1,x_2,...,x_n)]= \theta^{\sum_{i=1}^{n}x_i}(1-\theta)^{n-\sum_{i=1}^{n}x_i}\).
+\end{enumerate}
+
+Podemos reescrever da seguinte forma: \[
+\theta^{\sum_{i=1}^{n}x_i} \times \frac{(1-\theta)^{n}}{(1-\theta)^{\sum_{i=1}^{n}x_i}}
+\] Logo \(T=\sum{x_i}\) é uma estatística suficiente para \(\theta\).
+
+\subsection{Exercício 12:}\label{exercuxedcio-12}
+
+Sejam \(X_1,...,X_n\) uma amostra aleatória da variável aleatória
+\(X ∼ U(0, θ)\).
+
+A função densidade da Uniforme contínua é:
+
+\[
+f(x|\theta)= \frac{1}{\theta-0}=\frac{1}{\theta}I_{[0,\theta]}x
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\quad x \in [0,\theta]\), aqui temos um parâmetro no suporte de
+  \(x\). A onde não se pode calcular a equação de regulariadade do
+  \(Li\).
+\end{enumerate}
+
+\subsection{Solução 12:}\label{soluuxe7uxe3o-12}
+
+Aplicado a função de verossimilhança:
+
+\[
+L(\theta|x) = \prod_{i=1}^{n} f(x_i) = \prod_{i=1}^{n} \frac{1}{\theta} \cdot I(x_i)_{[0,\theta]}= 
+\]
+
+\[
+=  \frac{1}{\theta} \cdot I(x_1)_{[0,\theta]} \times \frac{1}{\theta} \cdot I(x_2)_{[0,\theta]},...\frac{1}{\theta} \cdot I(x_n)_{[0,\theta]} =
+\]
+
+\[
+= \frac{1}{\theta^{n}} \cdot \prod_{i=1}^{n} I(x_i)_{[0,\theta]}
+\]
+
+\begin{itemize}
+\item
+  Quem seria a estatística suficiente?
+
+  \(\rightarrow\) Existe uma relação de dependencia de \(\theta\) no
+  suporte de \(x_i\).
+
+  \(\rightarrow\) Para encontrar a estatística, teremos que verificar os
+  intervalos do suporte.
+\end{itemize}
+
+\textbf{Observe:}
+
+\[
+0 < x_i < \theta, \quad i=1,...n.
+\]
+
+Logo, podemos expandir da seguinte forma:
+
+\[
+0 < x_1 < \theta
+\]
+
+\[
+0 < x_2 < \theta
+\] \[
+.
+\] \[
+.
+\] \[
+.
+\] \[
+0 < x_n < \theta
+\]
+
+Podemos ter a seguinte relação, baseado nos conceitos anteriores sobre
+as \textbf{Estatísticas de Ordem(mínimos, máximos)}:
+
+\[
+0 <x_{(1)} < \underbrace{x_{(n)}<\theta<\infty}_{intervalo \quad de \quad  \theta}
+\]
+
+Reescrevendo a função Indicadora para o intervalo de \(\theta\), temos:
+
+\[
+L(\theta|x) = \frac{1}{\theta^{n}} \cdot \prod_{i=1}^{n} I(x_i)_{[x_{n},\infty]} =
+\]
+
+\[
+= \frac{1}{\theta^{n}} \cdot I(\theta)_{[x_{(n)}, \infty)}
+\] Pelo Critério da Fatoração, temos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Temos que a função \(h(x_1,..x_n) = 1(x_{(1)})_{[0,x_{(n)}]}\).
+\item
+  E a
+  \(g_\theta[T(x_1,x_2,...,x_n)]= \frac{1}{\theta^{n}} \cdot I(\theta)_{[x_{(n)}, \infty)}\).
+\end{enumerate}
+
+A partir da função indicadora de uma variável \(x\), ao manipular os
+intervalos, podemos obter a função de \(\theta\), de modo que
+\(g_{\theta}\) seja uma estatística suficiente.
+
+Assim, a estatística suficiente \(T(x_{1},...,x_{n})= x_{(n)}\) é dada
+pelo máximo \(x_{(n)}\), que depende de \(\theta\).
+
+\subsection{Exercício (aplicação em sala)
+2:}\label{exercuxedcio-aplicauxe7uxe3o-em-sala-2}
+
+Sendo \(X ∼ U(\theta,1)\).
+
+\[
+f(x)=\frac{1}{1-\theta} \cdot I(x)_{[\theta,1]}
+\]
+
+\subsection{Solução:}\label{soluuxe7uxe3o-1}
+
+Aplicando a função de verossimilhança:
+
+\[
+L(\theta|x) = \prod_{i=1}^{n} \frac{1}{1-\theta} \cdot I(x_i)_{[\theta,1]}= 
+\]
+
+\[
+= \frac{1}{1-\theta} \cdot I(x_1)_{[\theta,1]} \times \frac{1}{1-\theta} \cdot I(x_2)_{[\theta,1]} \times,..., \times \frac{1}{1-\theta} \cdot I(x_n)_{[\theta,1]}=   
+\]
+
+\[
+= \frac{1}{(1-\theta)^{n}} \cdot \prod_{i=1}^{n} I(x_i)_{[\theta,1]}
+\]
+
+Novamente, temos que:
+
+\[
+0 < x_i < \theta, \quad i=1,...n.
+\]
+
+\[
+\theta < x_1 < 1
+\] \[
+\theta < x_2 < 1
+\] \[
+.
+\] \[
+.
+\] \[
+.
+\] \[
+\theta < x_n < 1
+\] Logo, o intervalo em que \(\theta\) está contido, será:
+
+\[
+\underbrace{0< \theta < x_{(1)}}_{intervalo \quad de \quad \theta}< x_{(n)} < 1
+\]
+
+Reescrevendo a função indicadora para \(\theta\):
+
+\[
+L(\theta|x) = \prod_{i=1}^{n} \frac{1}{1-\theta} \cdot I(x_i)_{[\theta,1]}= 
+\]
+
+\[
+= \frac{1}{(1-\theta)^{n}} \cdot I(\theta)_{[0,x_{(1)}]} \cdot I(x_{(n)})_{[x_{(1)}, 1]}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Temos que a função \(h(x_1,..x_n) = 1I(x_{(n)})_{[x_{(1)}, 1]}\).
+\item
+  E a
+  \(g_\theta[T(x_1,x_2,...,x_n)] = \frac{1}{(1-\theta)^{n}} \cdot I(\theta)_{[0,x_{(1)}]}\).
+\end{enumerate}
+
+Portanto, pelo Critério da Fatoração, \(T(x_{1},...,x_{n})= x_{(1)}\) é
+uma estatística suficiente para \(\theta\).
+
+
+
+
+\end{document}
