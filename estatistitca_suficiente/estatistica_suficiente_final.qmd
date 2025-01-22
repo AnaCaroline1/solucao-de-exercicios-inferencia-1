@@ -11,13 +11,14 @@ author:
     email: ana.pantoja@icen.ufpa.br
 format:
   pdf: 
-    documentclass: report
+    number-sections: false
     keep-tex: true
-  html:
-    theme: united
-    max-width: 1400px
-    fontsize: 1.1em
-    linestretch: 1
+    latex-engine: xelatex
+  html: default
+header-includes:
+  - \usepackage{geometry}            % Controle de margens
+  - \geometry{top=2cm, bottom=2cm, left=3cm, right=3cm}
+  
 editor: visual
 lang: pt
 
@@ -110,7 +111,7 @@ L(\theta|x) = \prod_{i=1}^{n} f(x_i) = \prod_{i=1}^{n} \frac{1}{\theta} \cdot I(
 $$
 
 $$
-=  \frac{1}{\theta} \cdot I(x_1)_{[0,\theta]} \times \frac{1}{\theta} \cdot I(x_2)_{[0,\theta]},...\frac{1}{\theta} \cdot I(x_n)_{[0,\theta]} =
+=  \frac{1}{\theta} \cdot I(x_1)_{[0,\theta]} \times \frac{1}{\theta} \cdot I(x_2)_{[0,\theta]},...,\frac{1}{\theta} \cdot I(x_n)_{[0,\theta]} =
 $$
 
 $$

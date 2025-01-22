@@ -4,7 +4,9 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
-]{report}
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
 
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -90,6 +92,9 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\KOMAoption{captions}{tableheading}
+\usepackage{geometry}            % Controle de margens
+\geometry{top=2cm, bottom=2cm, left=3cm, right=3cm}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -175,13 +180,13 @@
 \maketitle
 
 
-\subsection{Exercício 11 :}\label{exercuxedcio-11}
+\subsubsection{Exercício 11 :}\label{exercuxedcio-11}
 
 Sejam \(X_1,..., X_n\) uma amostra aleatória da distribuição de Poisson
 com parâmetro \(θ\). Vamos verificar se \(T = \sum_{i=1}^{n} X_i\) é
 suficiente para \(\theta\).
 
-\subsection{Solução 11:}\label{soluuxe7uxe3o-11}
+\subsubsection{Solução 11:}\label{soluuxe7uxe3o-11}
 
 Temos pelo Critério da Fatoração que,
 
@@ -218,14 +223,14 @@ A função de verossimilhança aplicada a Poisson será:
 Nota-se que \(T(x_1,x_2,...,x_n)=\sum_{i = 1}^{n} x_{i}\). Logo,
 \(\sum_{i = 1}^{n} x_{i}\) é uma estatística suficiente para \(\theta\).
 
-\subsection{Exercício (aplicação em sala)
+\subsubsection{Exercício (aplicação em sala)
 1:}\label{exercuxedcio-aplicauxe7uxe3o-em-sala-1}
 
 Sendo \(X\) \textasciitilde{} \(Ber(\theta)\), com: \[
 P(X=x| \theta)=\theta^x(1-\theta)^{1-x}, \quad x = 0,1,2,3...
 \]
 
-\subsection{Solução:}\label{soluuxe7uxe3o}
+\subsubsection{Solução:}\label{soluuxe7uxe3o}
 
 A função de verossimilhança aplicada a Bernoulli: \[
 L(\theta|x) = \prod_{i=1}^{n} \theta^{xi}(1-\theta)^{1-x_i} = \theta^{x_1}(1-\theta)^{1-x_1}\times\theta^{x_2}(1-\theta)^{1-x_2},...,\theta^{x_n}(1-\theta)^{1-x_n} =
@@ -249,7 +254,7 @@ Podemos reescrever da seguinte forma: \[
 \theta^{\sum_{i=1}^{n}x_i} \times \frac{(1-\theta)^{n}}{(1-\theta)^{\sum_{i=1}^{n}x_i}}
 \] Logo \(T=\sum{x_i}\) é uma estatística suficiente para \(\theta\).
 
-\subsection{Exercício 12:}\label{exercuxedcio-12}
+\subsubsection{Exercício 12:}\label{exercuxedcio-12}
 
 Sejam \(X_1,...,X_n\) uma amostra aleatória da variável aleatória
 \(X ∼ U(0, θ)\).
@@ -269,7 +274,7 @@ f(x|\theta)= \frac{1}{\theta-0}=\frac{1}{\theta}I_{[0,\theta]}x
   \(Li\).
 \end{enumerate}
 
-\subsection{Solução 12:}\label{soluuxe7uxe3o-12}
+\subsubsection{Solução 12:}\label{soluuxe7uxe3o-12}
 
 Aplicado a função de verossimilhança:
 
@@ -278,7 +283,7 @@ L(\theta|x) = \prod_{i=1}^{n} f(x_i) = \prod_{i=1}^{n} \frac{1}{\theta} \cdot I(
 \]
 
 \[
-=  \frac{1}{\theta} \cdot I(x_1)_{[0,\theta]} \times \frac{1}{\theta} \cdot I(x_2)_{[0,\theta]},...\frac{1}{\theta} \cdot I(x_n)_{[0,\theta]} =
+=  \frac{1}{\theta} \cdot I(x_1)_{[0,\theta]} \times \frac{1}{\theta} \cdot I(x_2)_{[0,\theta]},...,\frac{1}{\theta} \cdot I(x_n)_{[0,\theta]} =
 \]
 
 \[
@@ -354,7 +359,7 @@ intervalos, podemos obter a função de \(\theta\), de modo que
 Assim, a estatística suficiente \(T(x_{1},...,x_{n})= x_{(n)}\) é dada
 pelo máximo \(x_{(n)}\), que depende de \(\theta\).
 
-\subsection{Exercício (aplicação em sala)
+\subsubsection{Exercício (aplicação em sala)
 2:}\label{exercuxedcio-aplicauxe7uxe3o-em-sala-2}
 
 Sendo \(X ∼ U(\theta,1)\).
@@ -363,7 +368,7 @@ Sendo \(X ∼ U(\theta,1)\).
 f(x)=\frac{1}{1-\theta} \cdot I(x)_{[\theta,1]}
 \]
 
-\subsection{Solução:}\label{soluuxe7uxe3o-1}
+\subsubsection{Solução:}\label{soluuxe7uxe3o-1}
 
 Aplicando a função de verossimilhança:
 
